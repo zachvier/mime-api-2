@@ -83,3 +83,9 @@ This script can be used interactively or with command-line arguments.
     python3 scripts/decode_url.py
     # Follow the prompt to paste the URL
     ```
+
+## Project Status
+
+<p align="center">
+  <img src="https://typograssy.deno.dev/api?text=Work%20in%20progress%20%20%20&l1=00ff2a&l2=22aa46&bg=000000&frame=5c5c5c&speed=100&comment=" alt="Work in progress" />
+</p>
