@@ -16,7 +16,7 @@ POST /api/archive/get-search-logs
 POST /api/archive/get-view-logs
 POST /api/archive/search
 POST /api/audit/get-audit-events
-POST /api/audit/get-categories
+[x] POST /api/audit/get-categories
 POST /api/awareness-training/company/get-performance-details
 POST /api/awareness-training/company/get-performance-summary
 POST /api/awareness-training/company/get-safe-score-details
@@ -82,9 +82,9 @@ POST /api/policy/webwhiteurl/create-policy-with-targets
 POST /api/policy/webwhiteurl/delete-policy-with-targets
 POST /api/policy/webwhiteurl/get-policy-with-targets
 POST /api/policy/webwhiteurl/update-policy-with-targets
-POST /api/provisioning/get-packages
-POST /api/ttp/attachment/get-logs
-POST /api/ttp/impersonation/get-logs
+[x] POST /api/provisioning/get-packages
+[x] POST /api/ttp/attachment/get-logs
+[x] POST /api/ttp/impersonation/get-logs
 POST /api/ttp/remediation/create
 POST /api/ttp/remediation/find-incidents
 POST /api/ttp/remediation/get-incident
@@ -93,7 +93,7 @@ POST /api/ttp/remediation/v2/create
 POST /api/ttp/url/create-managed-url
 [x] POST /api/ttp/url/decode-url
 POST /api/ttp/url/delete-managed-url
-POST /api/ttp/url/get-all-managed-urls
+[x] POST /api/ttp/url/get-all-managed-urls
 POST /api/ttp/url/get-logs
 POST /api/user/add-delegate-user
 POST /api/user/add-to-purge-list

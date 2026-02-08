@@ -10,7 +10,9 @@ A collection of Python scripts to interact with the Mimecast API 2.0. This toolk
 - **Centralized Authentication:** OAuth2 token management handled automatically.
 - **Account Insights:** Retrieve detailed account info, support details, and emergency contacts.
 - **Monitoring:** Check email queues and dashboard notifications.
-- **Security:** Decode rewritten URLs and fetch archive search logs.
+- **Security:** Decode rewritten URLs, fetch archive search logs, and list managed URLs.
+- **Auditing:** Retrieve audit event categories.
+- **Provisioning:** View account packages.
 - **Identity:** Verify partner and account identity information.
 
 ## Installation
@@ -66,6 +68,11 @@ python3 scripts/<script_name>.py
 | `get_archive_search_logs.py` | Retrieves archive search logs (supports pagination). |
 | `get_whoami.py` | Fetches identity information (whoami). |
 | `decode_url.py` | Decodes Mimecast rewritten URLs (TTP). |
+| `get_audit_categories.py` | Retrieves audit event categories. |
+| `get_provisioning_packages.py` | Retrieves provisioning packages for the account. |
+| `get_all_managed_urls.py` | Fetches all TTP managed URLs. |
+| `get_ttp_attachment_logs.py` | Fetches TTP attachment protection logs (last 7 days). |
+| `get_ttp_impersonation_logs.py` | Fetches TTP impersonation protection logs (last 7 days). |
 
 ### Advanced Usage
 
