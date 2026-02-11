@@ -75,11 +75,22 @@ python3 scripts/<script_name>.py
 | `get_ttp_attachment_logs.py` | Fetches TTP attachment protection logs (last 7 days). |
 | `get_ttp_impersonation_logs.py` | Fetches TTP impersonation protection logs (last 7 days). |
 
-### Advanced Usage
+### Interactive Scripts
+
+**Audit Events (`get_audit_events.py`)**
+
+Interactive script that prompts for time frame selection and automatically handles pagination:
+
+```bash
+python3 scripts/get_audit_events.py
+# 1. Select time frame (last hour, 24h, 7 days, 30 days, or custom)
+# 2. Choose results per page (up to 500)
+# 3. Optionally fetch additional pages when more results are available
+```
 
 **URL Decode (`decode_url.py`)**
 
-This script can be used interactively or with command-line arguments.
+Can be used interactively or with command-line arguments:
 
 *   **Argument Mode:**
     ```bash
@@ -91,17 +102,6 @@ This script can be used interactively or with command-line arguments.
     python3 scripts/decode_url.py
     # Follow the prompt to paste the URL
     ```
-
-**Audit Events (`get_audit_events.py`)**
-
-This script prompts you to select a time frame and page size, then automatically handles pagination:
-
-```bash
-python3 scripts/get_audit_events.py
-# 1. Select time frame (last hour, 24h, 7 days, 30 days, or custom)
-# 2. Choose results per page (up to 500)
-# 3. Optionally fetch additional pages when more results are available
-```
 
 ## Project Status
 
