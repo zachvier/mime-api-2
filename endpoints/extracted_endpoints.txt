@@ -15,7 +15,7 @@ POST /api/archive/get-message-part
 POST /api/archive/get-search-logs
 POST /api/archive/get-view-logs
 POST /api/archive/search
-POST /api/audit/get-audit-events
+[x] POST /api/audit/get-audit-events
 [x] POST /api/audit/get-categories
 POST /api/awareness-training/company/get-performance-details
 POST /api/awareness-training/company/get-performance-summary

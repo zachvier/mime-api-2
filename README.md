@@ -69,6 +69,7 @@ python3 scripts/<script_name>.py
 | `get_whoami.py` | Fetches identity information (whoami). |
 | `decode_url.py` | Decodes Mimecast rewritten URLs (TTP). |
 | `get_audit_categories.py` | Retrieves audit event categories. |
+| `get_audit_events.py` | Interactive audit event retrieval with time frame selection and pagination. |
 | `get_provisioning_packages.py` | Retrieves provisioning packages for the account. |
 | `get_all_managed_urls.py` | Fetches all TTP managed URLs. |
 | `get_ttp_attachment_logs.py` | Fetches TTP attachment protection logs (last 7 days). |
@@ -90,6 +91,17 @@ This script can be used interactively or with command-line arguments.
     python3 scripts/decode_url.py
     # Follow the prompt to paste the URL
     ```
+
+**Audit Events (`get_audit_events.py`)**
+
+This script prompts you to select a time frame and page size, then automatically handles pagination:
+
+```bash
+python3 scripts/get_audit_events.py
+# 1. Select time frame (last hour, 24h, 7 days, 30 days, or custom)
+# 2. Choose results per page (up to 500)
+# 3. Optionally fetch additional pages when more results are available
+```
 
 ## Project Status
 
