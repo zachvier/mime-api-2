@@ -52,9 +52,9 @@ POST /api/domain/verify-domain
 POST /api/email/send-email
 POST /api/file/file-upload
 POST /api/gateway/find-processing-messages
-POST /api/gateway/get-held-release-logs
-POST /api/gateway/get-hold-message-list
-POST /api/gateway/get-hold-summary-list
+[x] POST /api/gateway/get-held-release-logs
+[x] POST /api/gateway/get-hold-message-list
+[x] POST /api/gateway/get-hold-summary-list
 POST /api/gateway/get-rejections
 POST /api/gateway/hold-reject
 POST /api/gateway/hold-release

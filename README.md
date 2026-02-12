@@ -58,39 +58,52 @@ python3 scripts/<script_name>.py
 
 ### Available Scripts
 
-| Script Name | Description |
-| :--- | :--- |
-| `get_account.py` | Retrieves detailed account information. |
-| `get_dashboard_notifications.py` | Fetches dashboard notifications for the configured account. |
-| `get_email_queues.py` | Monitors inbound and outbound email queues for the last 24 hours. |
-| `get_emergency_contact.py` | Retrieves account emergency contact details. |
-| `get_support_info.py` | Fetches support information for your Mimecast account. |
-| `get_archive_search_logs.py` | Retrieves archive search logs (supports pagination). |
-| `get_whoami.py` | Fetches identity information (whoami). |
-| `decode_url.py` | Decodes Mimecast rewritten URLs (TTP). |
-| `get_audit_categories.py` | Retrieves audit event categories. |
-| `get_audit_events.py` | Interactive audit event retrieval with time frame selection and pagination. |
-| `get_provisioning_packages.py` | Retrieves provisioning packages for the account. |
-| `get_all_managed_urls.py` | Fetches all TTP managed URLs. |
-| `get_ttp_attachment_logs.py` | Fetches TTP attachment protection logs (last 7 days). |
-| `get_ttp_impersonation_logs.py` | Fetches TTP impersonation protection logs (last 7 days). |
+This toolkit includes scripts organized by functional area:
 
-### Interactive Scripts
+**Account & Identity**
+- Account information, emergency contacts, support info, identity verification
 
-**Audit Events (`get_audit_events.py`)**
+**Security & Threat Protection**
+- URL decoding, TTP logs (attachment, impersonation), managed URLs
 
-Interactive script that prompts for time frame selection and automatically handles pagination:
+**Gateway & Message Management**
+- Email queues, held/release logs, hold message lists and summaries
 
+**Auditing & Compliance**
+- Audit events, audit categories, archive search logs, provisioning packages
+
+**Monitoring**
+- Dashboard notifications, message tracking
+
+For a complete list of available scripts, browse the `scripts/` directory:
 ```bash
-python3 scripts/get_audit_events.py
-# 1. Select time frame (last hour, 24h, 7 days, 30 days, or custom)
-# 2. Choose results per page (up to 500)
-# 3. Optionally fetch additional pages when more results are available
+ls scripts/*.py
 ```
 
-**URL Decode (`decode_url.py`)**
+### Advanced Usage
 
-Can be used interactively or with command-line arguments:
+**Interactive Scripts with Pagination**
+
+Several scripts offer interactive time frame selection and automatic pagination:
+
+- **`get_audit_events.py`** - Audit event retrieval with filtering
+- **`get_held_release_logs.py`** - Held/release message logs
+- **`get_hold_message_list.py`** - Held messages with admin filtering
+
+These scripts prompt you to:
+1. Select time frame (last hour, 24h, 7 days, 30 days, or custom dates)
+2. Choose results per page (1-500, default 100)
+3. Optionally fetch additional pages when more results are available
+
+Example:
+```bash
+python3 scripts/get_audit_events.py
+# Follow the interactive prompts
+```
+
+**URL Decoder**
+
+The `decode_url.py` script can be used interactively or with command-line arguments:
 
 *   **Argument Mode:**
     ```bash
