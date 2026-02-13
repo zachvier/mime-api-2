@@ -54,13 +54,15 @@ def get_time_frame_choice():
     print("2. Last 24 hours")
     print("3. Last 7 days")
     print("4. Last 30 days")
-    print("5. Custom (specify start and end dates)")
+    print("5. Last 60 days")
+    print("6. Custom (specify start and end dates)")
+    print("\nNote: API historical lookup is restricted to the last 60 days.")
 
     while True:
-        choice = input("\nEnter your choice (1-5): ").strip()
-        if choice in ['1', '2', '3', '4', '5']:
+        choice = input("\nEnter your choice (1-6): ").strip()
+        if choice in ['1', '2', '3', '4', '5', '6']:
             return choice
-        print("Invalid choice. Please enter a number between 1 and 5.")
+        print("Invalid choice. Please enter a number between 1 and 6.")
 
 def get_custom_datetime(prompt_text):
     """Prompts user to enter a custom datetime."""
@@ -79,13 +81,13 @@ def get_page_size():
     """Prompts user to specify the number of results per page."""
     while True:
         try:
-            size = input("\nHow many results per page? (1-500, default 100): ").strip()
+            size = input("\nHow many results per page? (1-100, default 100): ").strip()
             if not size:
                 return 100
             size = int(size)
-            if 1 <= size <= 500:
+            if 1 <= size <= 100:
                 return size
-            print("Please enter a number between 1 and 500.")
+            print("Please enter a number between 1 and 100.")
         except ValueError:
             print("Invalid input. Please enter a number.")
 
@@ -108,7 +110,10 @@ if __name__ == "__main__":
     elif choice == '4':
         start_date = now - timedelta(days=30)
         end_date = now
-    else:  # choice == '5'
+    elif choice == '5':
+        start_date = now - timedelta(days=60)
+        end_date = now
+    else:  # choice == '6'
         print("\nEnter custom time frame:")
         start_date = get_custom_datetime("Start date/time")
         end_date = get_custom_datetime("End date/time")
