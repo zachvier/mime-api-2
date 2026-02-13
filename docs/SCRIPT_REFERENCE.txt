@@ -1,0 +1,32 @@
+SCRIPT REFERENCE — Advanced Arguments & Interactive Features
+=============================================================
+
+Most scripts in this toolkit require no arguments — just run them.
+The scripts listed below are exceptions that support extra options.
+
+
+INTERACTIVE SCRIPTS (Pagination & Filtering)
+---------------------------------------------
+The following scripts prompt you to select a time frame, page size,
+and whether to fetch additional pages of results:
+
+  get_audit_events.py        Audit event retrieval with filtering
+  get_held_release_logs.py   Held/release message logs
+  get_hold_message_list.py   Held messages with admin filtering
+
+Prompts:
+  1. Time frame: last hour, 24h, 7 days, 30 days, or custom dates
+  2. Results per page: 1–500 (default 100)
+  3. Fetch next page when more results are available
+
+
+URL DECODER (Argument or Interactive)
+--------------------------------------
+  decode_url.py
+
+  With argument:
+    python3 scripts/decode_url.py "https://url.us.m.mimecastprotect.com/..."
+
+  Without argument (interactive):
+    python3 scripts/decode_url.py
+    # Prompts you to paste the URL
