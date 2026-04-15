@@ -3,6 +3,7 @@ import json
 import auth
 import sys
 from datetime import datetime, timedelta, timezone
+from table_utils import print_records
 
 BASE_URL = "https://api.services.mimecast.com"
 
@@ -82,7 +83,12 @@ if __name__ == "__main__":
         # Filter the data
         data = filter_recent_notifications(data)
 
-        if not data:
+        rows = []
+        for block in data:
+            rows.extend(block.get("notifications", []))
+
+        if not rows:
             print("No notifications found.")
         else:
-            print(json.dumps(data, indent=2))
+            print(f"({len(rows)} notifications)")
+            print_records(rows)

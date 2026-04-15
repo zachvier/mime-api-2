@@ -1,6 +1,7 @@
 import requests
 import json
 import auth
+from table_utils import print_records
 
 BASE_URL = "https://api.services.mimecast.com"
 
@@ -28,5 +29,9 @@ if __name__ == "__main__":
     account_data = get_account_info(token)
     
     if account_data:
-        print("\n--- Account Info Results ---")
-        print(json.dumps(account_data.get("data", []), indent=2))
+        data = account_data.get("data", [])
+        print("\n--- Account Info ---")
+        if not data:
+            print("No account info returned.")
+        else:
+            print_records(data)

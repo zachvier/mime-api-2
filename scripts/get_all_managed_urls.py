@@ -1,6 +1,7 @@
 import requests
 import json
 import auth
+from table_utils import print_records
 
 BASE_URL = "https://api.services.mimecast.com"
 
@@ -28,5 +29,9 @@ if __name__ == "__main__":
     urls_data = get_all_managed_urls(token)
 
     if urls_data:
-        print("\n--- Managed URLs Results ---")
-        print(json.dumps(urls_data.get("data", []), indent=2))
+        data = urls_data.get("data", [])
+        print(f"\n--- Managed URLs ({len(data)} total) ---")
+        if not data:
+            print("No managed URLs found.")
+        else:
+            print_records(data)

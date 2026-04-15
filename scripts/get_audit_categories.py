@@ -1,6 +1,7 @@
 import requests
 import json
 import auth
+from table_utils import print_records
 
 BASE_URL = "https://api.services.mimecast.com"
 
@@ -30,5 +31,8 @@ if __name__ == "__main__":
     if categories_data:
         categories = categories_data.get("data", [{}])[0].get("categories", [])
         categories.sort(key=lambda c: c.get("id", 0))
-        print("\n--- Audit Categories Results ---")
-        print(json.dumps(categories, indent=2))
+        print(f"\n--- Audit Categories ({len(categories)} total) ---")
+        if not categories:
+            print("No categories returned.")
+        else:
+            print_records(categories)

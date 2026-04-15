@@ -2,6 +2,7 @@ import requests
 import json
 from datetime import datetime, timedelta, timezone
 import auth
+from table_utils import print_records
 
 BASE_URL = "https://api.services.mimecast.com"
 
@@ -159,4 +160,4 @@ if __name__ == "__main__":
     if not all_messages:
         print("No held messages found for the selected period.")
     else:
-        print(json.dumps(all_messages, indent=2))
+        print_records(all_messages)

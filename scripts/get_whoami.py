@@ -2,6 +2,7 @@ import requests
 import json
 import auth
 import sys
+from table_utils import print_records
 
 BASE_URL = "https://api.services.mimecast.com"
 
@@ -35,5 +36,11 @@ if __name__ == "__main__":
     whoami_data = get_whoami(token, account_code)
     
     if whoami_data:
-        print("\n--- Identity Whoami Results ---")
-        print(json.dumps(whoami_data, indent=2))
+        print("\n--- Identity Whoami ---")
+        if isinstance(whoami_data, dict) and "data" in whoami_data:
+            rows = whoami_data.get("data") or []
+        elif isinstance(whoami_data, list):
+            rows = whoami_data
+        else:
+            rows = [whoami_data]
+        print_records(rows)

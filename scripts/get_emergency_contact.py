@@ -2,6 +2,7 @@ import requests
 import json
 import auth
 import sys
+from table_utils import print_records
 
 BASE_URL = "https://api.services.mimecast.com"
 
@@ -29,7 +30,11 @@ if __name__ == "__main__":
     contact_data = get_emergency_contact(token)
     
     if contact_data:
-        print("\n--- Emergency Contact Results ---")
-        # Note: v1 API response structure might differ from the legacy /api/ endpoints.
-        # Typically it returns the data directly or wrapped in a 'data' field.
-        print(json.dumps(contact_data, indent=2))
+        print("\n--- Emergency Contact ---")
+        if isinstance(contact_data, dict) and "data" in contact_data:
+            rows = contact_data.get("data") or []
+        elif isinstance(contact_data, list):
+            rows = contact_data
+        else:
+            rows = [contact_data]
+        print_records(rows)

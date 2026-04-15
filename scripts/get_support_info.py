@@ -1,6 +1,7 @@
 import requests
 import json
 import auth
+from table_utils import print_records
 
 BASE_URL = "https://api.services.mimecast.com"
 
@@ -28,5 +29,9 @@ if __name__ == "__main__":
     support_data = get_support_info(token)
     
     if support_data:
-        print("\n--- Support Info Results ---")
-        print(json.dumps(support_data.get("data", []), indent=2))
+        data = support_data.get("data", [])
+        print("\n--- Support Info ---")
+        if not data:
+            print("No support info returned.")
+        else:
+            print_records(data)

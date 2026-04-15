@@ -3,55 +3,59 @@
 > [!IMPORTANT]
 > This project is an unofficial toolkit and is **not** affiliated with, maintained, or endorsed by Mimecast.
 
-A collection of Python scripts to interact with the Mimecast API 2.0. This toolkit provides utilities for authentication, account management, email queue monitoring, threat intelligence, and more.
+A collection of Python scripts for the Mimecast API 2.0. Covers account info, gateway logs, held/released messages, DLP, TTP (URL/attachment/impersonation) logs, directory groups, managed URLs, and more.
 
 ## Installation
 
-1.  **Clone the repository:**
-    ```bash
-    git clone https://github.com/zachvier/mimecast-api-2.0.git
-    cd mimecast-api-2.0
-    ```
+1. **Clone:**
+   ```bash
+   git clone https://github.com/zachvier/mimecast-api-2.0.git
+   cd mimecast-api-2.0
+   ```
 
-2.  **Install dependencies:**
-    ```bash
-    pip3 install -r requirements.txt
-    ```
+2. **Install dependencies:**
+   ```bash
+   pip3 install -r requirements.txt
+   ```
 
-3.  **Configure Credentials:**
-    Create a `credentials.txt` file in the `scripts/` directory (or root, depending on where you run from) with your Mimecast API Client ID and Secret:
-    ```text
-    client_id=YOUR_CLIENT_ID
-    client_secret=YOUR_CLIENT_SECRET
-    ```
-    *Note: `credentials.txt` is git-ignored for security.*
+3. **Configure credentials:**
+   Create `scripts/credentials.txt`:
+   ```text
+   client_id=YOUR_CLIENT_ID
+   client_secret=YOUR_CLIENT_SECRET
+   ```
+   *`credentials.txt` is git-ignored.*
 
-    **Finding your Account Code:**
-    Once configured, run the account script to find your `account_code`:
-    ```bash
-    python3 scripts/get_account.py
-    ```
-    Then, add it to your `credentials.txt`:
-    ```text
-    client_id=YOUR_CLIENT_ID
-    client_secret=YOUR_CLIENT_SECRET
-    account_code=YOUR_ACCOUNT_CODE
-    ```
+   **Find your account code** (needed for a couple of scripts):
+   ```bash
+   python3 scripts/get_account.py
+   ```
+   Then add it:
+   ```text
+   account_code=YOUR_ACCOUNT_CODE
+   ```
 
 ## Usage
 
-All scripts are in the `scripts/` directory. Run any script from the project root:
+Run any script from the project root:
 ```bash
 python3 scripts/<script_name>.py
 ```
 
-Browse all available scripts:
+List all available scripts:
 ```bash
 ls scripts/*.py
 ```
 
-> [!NOTE]
-> Some scripts support interactive prompts, pagination, or command-line arguments. See [`docs/SCRIPT_REFERENCE.txt`](docs/SCRIPT_REFERENCE.txt) for details.
+## Output format
+
+All record-producing scripts share a consistent vertical format via the shared `table_utils.print_records` helper — each record is printed as a labeled `key : value` block with aligned key widths. Nested values are rendered as compact JSON. This keeps heterogeneous API responses readable without column truncation.
+
+A handful of scripts intentionally use custom output for non-record shapes (`decode_url`, `get_email_queues`, `get_hold_summary_list`).
+
+## Script reference
+
+See [`docs/SCRIPT_REFERENCE.txt`](docs/SCRIPT_REFERENCE.txt) for the full list — grouped by category, with interactive prompts and arguments called out.
 
 ## Project Status
 

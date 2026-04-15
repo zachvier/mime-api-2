@@ -1,6 +1,7 @@
 import requests
 import json
 import auth
+from table_utils import print_records
 
 BASE_URL = "https://api.services.mimecast.com"
 
@@ -28,5 +29,9 @@ if __name__ == "__main__":
     packages_data = get_provisioning_packages(token)
 
     if packages_data:
-        print("\n--- Provisioning Packages Results ---")
-        print(json.dumps(packages_data.get("data", []), indent=2))
+        data = packages_data.get("data", [])
+        print(f"\n--- Provisioning Packages ({len(data)} total) ---")
+        if not data:
+            print("No provisioning packages found.")
+        else:
+            print_records(data)

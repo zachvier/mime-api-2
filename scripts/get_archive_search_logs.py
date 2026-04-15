@@ -2,6 +2,7 @@ import requests
 import json
 import auth
 import sys
+from table_utils import print_records
 
 BASE_URL = "https://api.services.mimecast.com"
 
@@ -38,12 +39,14 @@ if __name__ == "__main__":
     logs_data = get_archive_search_logs(token)
     
     if logs_data:
-        print("\n--- Archive Search Logs Results ---")
-        data = logs_data.get("data", [])
-        if not data:
+        rows = []
+        for block in logs_data.get("data", []):
+            rows.extend(block.get("logs", []))
+        print(f"\n--- Archive Search Logs ({len(rows)} total) ---")
+        if not rows:
             print("No search logs found.")
         else:
-            print(json.dumps(data, indent=2))
+            print_records(rows)
         
         # Check for more pages
         meta = logs_data.get("meta", {})

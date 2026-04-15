@@ -2,6 +2,7 @@ import requests
 import json
 from datetime import datetime, timedelta, timezone
 import auth
+from table_utils import print_records
 
 BASE_URL = "https://api.services.mimecast.com"
 
@@ -37,5 +38,11 @@ if __name__ == "__main__":
     logs_data = get_ttp_attachment_logs(token)
 
     if logs_data:
-        print("\n--- TTP Attachment Logs Results ---")
-        print(json.dumps(logs_data.get("data", []), indent=2))
+        rows = []
+        for block in logs_data.get("data", []):
+            rows.extend(block.get("attachmentLogs", []))
+        print(f"\n--- TTP Attachment Logs ({len(rows)} total) ---")
+        if not rows:
+            print("No attachment logs found for the selected period.")
+        else:
+            print_records(rows)

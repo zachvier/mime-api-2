@@ -2,6 +2,7 @@ import requests
 import json
 from datetime import datetime, timedelta, timezone
 import auth
+from table_utils import print_records
 
 BASE_URL = "https://api.services.mimecast.com"
 
@@ -133,9 +134,11 @@ if __name__ == "__main__":
         if not logs_data:
             break
 
-        data = logs_data.get("data", [])
-        all_logs.extend(data)
-        print(f"Got {len(data)} results (total so far: {len(all_logs)})")
+        page_rows = []
+        for block in logs_data.get("data", []):
+            page_rows.extend(block.get("heldReleaseLogs", []))
+        all_logs.extend(page_rows)
+        print(f"Got {len(page_rows)} results (total so far: {len(all_logs)})")
 
         meta = logs_data.get("meta", {})
         pagination = meta.get("pagination", {})
@@ -153,4 +156,4 @@ if __name__ == "__main__":
     if not all_logs:
         print("No held/release logs found for the selected period.")
     else:
-        print(json.dumps(all_logs, indent=2))
+        print_records(all_logs)
