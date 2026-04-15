@@ -35,15 +35,15 @@ POST /api/directory/add-group-member
 POST /api/directory/create-group
 POST /api/directory/delete-group
 POST /api/directory/execute-sync
-POST /api/directory/find-groups
+[x] POST /api/directory/find-groups
 POST /api/directory/get-connection
 POST /api/directory/get-group-members
 POST /api/directory/remove-group-member
 POST /api/directory/update-group
-POST /api/dlp/get-logs
+[x] POST /api/dlp/get-logs
 POST /api/domain/create-domain
 POST /api/domain/delete-pending-domain
-POST /api/domain/get-internal-domain
+[x] POST /api/domain/get-internal-domain
 POST /api/domain/get-pending-domain
 POST /api/domain/get-provision-status
 POST /api/domain/get-verification-code
@@ -55,7 +55,7 @@ POST /api/gateway/find-processing-messages
 [x] POST /api/gateway/get-held-release-logs
 [x] POST /api/gateway/get-hold-message-list
 [x] POST /api/gateway/get-hold-summary-list
-POST /api/gateway/get-rejections
+[x] POST /api/gateway/get-rejections
 POST /api/gateway/hold-reject
 POST /api/gateway/hold-release
 POST /api/gateway/message/get-file
@@ -94,7 +94,7 @@ POST /api/ttp/url/create-managed-url
 [x] POST /api/ttp/url/decode-url
 POST /api/ttp/url/delete-managed-url
 [x] POST /api/ttp/url/get-all-managed-urls
-POST /api/ttp/url/get-logs
+[x] POST /api/ttp/url/get-logs
 POST /api/user/add-delegate-user
 POST /api/user/add-to-purge-list
 POST /api/user/create-user
