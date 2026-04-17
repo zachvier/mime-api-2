@@ -36,7 +36,7 @@ POST /api/directory/create-group
 POST /api/directory/delete-group
 POST /api/directory/execute-sync
 [x] POST /api/directory/find-groups
-POST /api/directory/get-connection
+[x] POST /api/directory/get-connection
 POST /api/directory/get-group-members
 POST /api/directory/remove-group-member
 POST /api/directory/update-group
@@ -102,7 +102,7 @@ POST /api/user/find-delegate-users
 POST /api/user/get-aliases
 POST /api/user/get-attributes
 POST /api/user/get-import-status
-POST /api/user/get-internal-users
+[x] POST /api/user/get-internal-users
 POST /api/user/get-most-used-contacts
 POST /api/user/import-users
 POST /api/user/remove-alias

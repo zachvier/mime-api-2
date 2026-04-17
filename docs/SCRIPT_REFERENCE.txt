@@ -51,6 +51,9 @@ DIRECTORY & DOMAINS
 -------------------
   find_groups.py                  Directory groups. Prompts: source (cloud/ldap), optional query, pagination
   get_internal_domains.py         Internal domains on the account
+  get_internal_users.py           Internal users for a domain. Lists internal domains to pick from
+                                  (or enter one manually), then paginates results per page
+  get_directory_connections.py    Directory connectors configured on the tenant
 
 
 URLs & ARCHIVE
