@@ -54,6 +54,12 @@ DIRECTORY & DOMAINS
   get_internal_users.py           Internal users for a domain. Lists internal domains to pick from
                                   (or enter one manually), then paginates results per page
   get_directory_connections.py    Directory connectors configured on the tenant
+  get_user_aliases.py             Aliases associated with a primary email address.
+                                  Prompts for the email address.
+  get_user_attributes.py          Custom attributes registered for a user. Prompts for
+                                  the email address. If a thumbnailPhoto attribute is
+                                  returned, offers to save it as <email>_thumbnail.jpg
+                                  in the current working directory.
 
 
 URLs & ARCHIVE
