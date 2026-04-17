@@ -67,6 +67,7 @@ URLs & ARCHIVE
   get_all_managed_urls.py         Managed URL list (allow/block entries)
   get_archive_search_logs.py      Archive search activity logs
   get_audit_categories.py         Available audit event category IDs/names
+  get_provisioning_packages.py    Provisioning packages available on the tenant
 
 
 URL DECODER (argument or interactive)
