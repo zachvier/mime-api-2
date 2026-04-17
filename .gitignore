@@ -6,3 +6,7 @@ venv/
 credentials.txt
 session.txt
 CLAUDE.local.md
+*.jpg
+*.jpeg
+*.png
+*.gif
