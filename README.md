@@ -9,8 +9,8 @@ A collection of Python scripts for the Mimecast API 2.0. Covers account info, ga
 
 1. **Clone:**
    ```bash
-   git clone https://github.com/zachvier/mimecast-api-2.0.git
-   cd mimecast-api-2.0
+   git clone https://github.com/zachvier/mime-api-2.git
+   cd mime-api-2
    ```
 
 2. **Install dependencies:**
@@ -25,6 +25,13 @@ A collection of Python scripts for the Mimecast API 2.0. Covers account info, ga
    client_secret=YOUR_CLIENT_SECRET
    ```
    *`credentials.txt` is git-ignored.*
+
+   You can also use a project-root `.env` file or exported environment variables:
+   ```text
+   MIMECAST_CLIENT_ID=YOUR_CLIENT_ID
+   MIMECAST_CLIENT_SECRET=YOUR_CLIENT_SECRET
+   MIMECAST_ACCOUNT_CODE=YOUR_ACCOUNT_CODE
+   ```
 
    **Find your account code** (needed for a couple of scripts):
    ```bash

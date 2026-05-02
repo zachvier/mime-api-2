@@ -36,6 +36,9 @@ GATEWAY — OTHER
 ---------------
   get_hold_summary_list.py        Counts of currently held messages grouped by policy (aggregate)
   get_email_queues.py             Inbound/outbound queue depth over the last 24h (aggregate)
+  get_gateway_details.py          Cloud Gateway outbound config, mail platforms, SPF/MX details
+  get_outbound_ip_addresses.py    Configured outbound IP addresses for the account mail platform
+  get_email_statistics.py         Cloud Gateway email statistics / delivery health
 
 
 DLP & TTP LOGS
@@ -84,7 +87,8 @@ URL DECODER (argument or interactive)
 
 SHARED HELPERS
 --------------
-  auth.py           OAuth client_credentials token fetch; reads credentials.txt
+  auth.py           OAuth client_credentials token fetch; reads credentials.txt,
+                    project-root .env, or environment variables
   table_utils.py    print_records (vertical key: value output), print_table, offer_more_views
 
 

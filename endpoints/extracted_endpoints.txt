@@ -179,9 +179,9 @@ POST /domain/cloud-gateway/v1/pending-domains/verify
 ## email
 DELETE /email/cloud-gateway/v1/outbound-ip-addresses
 DELETE /email/cloud-integrated/v1/policies/:policyId
-GET /email/cloud-gateway/v1/gateway-details
-GET /email/cloud-gateway/v1/outbound-ip-addresses
-GET /email/cloud-gateway/v1/statistics
+[x] GET /email/cloud-gateway/v1/gateway-details
+[x] GET /email/cloud-gateway/v1/outbound-ip-addresses
+[x] GET /email/cloud-gateway/v1/statistics
 GET /email/cloud-integrated/v1/policies/:policyId
 GET /email/cloud-integrated/v1/policies/default-policy
 PATCH /email/cloud-gateway/v1/gateway-details
@@ -281,4 +281,3 @@ GET /threats/v1/stats/url-clicks
 
 ## users
 POST /users/cloud-gateway/v1/users
-
