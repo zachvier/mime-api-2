@@ -2,7 +2,7 @@ __pycache__/
 *.pyc
 .env
 .DS_Store
-.vscode/launch.json
+.vscode/
 venv/
 .venv/
 credentials.txt
