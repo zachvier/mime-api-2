@@ -1,7 +1,19 @@
 SCRIPT REFERENCE — Mimecast API 2.0 Toolkit
 ============================================
 
-Run any script from the project root:
+Start the terminal launcher from the project root:
+  python3 mimecast_toolkit.py
+
+The launcher authenticates once, shows a compact script table, and accepts a
+script name to open that script's detail page.
+
+List scripts without authenticating:
+  python3 mimecast_toolkit.py list
+
+Run a specific script through the launcher:
+  python3 mimecast_toolkit.py run get_account
+
+You can still run any script directly from the project root:
   python3 scripts/<script_name>.py
 
 Most scripts take no arguments — just run them. Scripts with interactive

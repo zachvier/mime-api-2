@@ -14,14 +14,15 @@ CONFIG_ALIASES = {
     "mimecast_client_secret": "client_secret",
     "mimecast_account_code": "account_code",
 }
+TOKEN_ENV_KEYS = ("MIMECAST_ACCESS_TOKEN", "ACCESS_TOKEN")
 
-def get_credentials():
+def get_credentials(config_overrides=None):
     """Reads client_id and client_secret from a text file."""
-    creds = get_config()
+    creds = get_config(config_overrides)
     return creds.get("client_id"), creds.get("client_secret")
 
-def get_config():
-    """Reads config from environment variables, .env, and credentials.txt."""
+def get_config(config_overrides=None):
+    """Reads config from environment variables, .env, credentials.txt, and overrides."""
     load_dotenv(ENV_FILE)
 
     creds = {}
@@ -42,11 +43,22 @@ def get_config():
                     creds[key] = value.strip()
     except FileNotFoundError:
         pass
+
+    if config_overrides:
+        for key, value in config_overrides.items():
+            normalized_key = CONFIG_ALIASES.get(str(key).strip().lower(), str(key).strip().lower())
+            if normalized_key in CONFIG_KEYS and value:
+                creds[normalized_key] = str(value).strip()
     return creds
 
-def get_token():
-    """Obtains the Bearer token using credentials from file."""
-    client_id, client_secret = get_credentials()
+def get_token(config_overrides=None):
+    """Obtains the Bearer token, or reuses one supplied by the launcher."""
+    for env_key in TOKEN_ENV_KEYS:
+        access_token = os.getenv(env_key)
+        if access_token:
+            return access_token.strip()
+
+    client_id, client_secret = get_credentials(config_overrides)
     
     if (
         not client_id

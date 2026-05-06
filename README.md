@@ -44,14 +44,29 @@ A collection of Python scripts for the Mimecast API 2.0. Covers account info, ga
 
 ## Usage
 
-Run any script from the project root:
+Start the terminal launcher from the project root:
 ```bash
-python3 scripts/<script_name>.py
+python3 mimecast_toolkit.py
 ```
 
-List all available scripts:
+The launcher checks credentials, authenticates once, then shows a compact script
+table. Enter a script name to open its detail page and run it. If no stored
+credentials are found, it prompts for session-only credentials and does not save
+them.
+
+List scripts without authenticating:
 ```bash
-ls scripts/*.py
+python3 mimecast_toolkit.py list
+```
+
+Run a specific script through the launcher:
+```bash
+python3 mimecast_toolkit.py run get_account
+```
+
+You can still run any script directly from the project root:
+```bash
+python3 scripts/<script_name>.py
 ```
 
 ## Output format
