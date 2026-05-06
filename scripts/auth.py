@@ -9,6 +9,11 @@ CREDENTIALS_FILE = os.path.join(SCRIPT_DIR, "credentials.txt")
 ENV_FILE = os.path.join(PROJECT_ROOT, ".env")
 BASE_URL = "https://api.services.mimecast.com"
 CONFIG_KEYS = ("client_id", "client_secret", "account_code")
+CONFIG_ALIASES = {
+    "mimecast_client_id": "client_id",
+    "mimecast_client_secret": "client_secret",
+    "mimecast_account_code": "account_code",
+}
 
 def get_credentials():
     """Reads client_id and client_secret from a text file."""
@@ -32,7 +37,9 @@ def get_config():
             for line in f:
                 if "=" in line:
                     key, value = line.strip().split("=", 1)
-                    creds[key.strip().lower()] = value.strip()
+                    key = key.strip().lower()
+                    key = CONFIG_ALIASES.get(key, key)
+                    creds[key] = value.strip()
     except FileNotFoundError:
         pass
     return creds

@@ -3,7 +3,7 @@
 > [!IMPORTANT]
 > This project is an unofficial toolkit and is **not** affiliated with, maintained, or endorsed by Mimecast.
 
-A collection of Python scripts for the Mimecast API 2.0. Covers account info, gateway logs, held/released messages, DLP, TTP (URL/attachment/impersonation) logs, directory groups, managed URLs, and more.
+A collection of Python scripts for the Mimecast API 2.0. Covers account info, gateway logs, held/released messages, DLP, TTP (URL/attachment/impersonation) logs, directory groups and members, delegates, most-used contacts, managed URLs, and more.
 
 ## Installation
 

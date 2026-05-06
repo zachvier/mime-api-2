@@ -37,7 +37,7 @@ POST /api/directory/delete-group
 POST /api/directory/execute-sync
 [x] POST /api/directory/find-groups
 [x] POST /api/directory/get-connection
-POST /api/directory/get-group-members
+[x] POST /api/directory/get-group-members
 POST /api/directory/remove-group-member
 POST /api/directory/update-group
 [x] POST /api/dlp/get-logs
@@ -98,12 +98,12 @@ POST /api/ttp/url/delete-managed-url
 POST /api/user/add-delegate-user
 POST /api/user/add-to-purge-list
 POST /api/user/create-user
-POST /api/user/find-delegate-users
+[x] POST /api/user/find-delegate-users
 [x] POST /api/user/get-aliases
 [x] POST /api/user/get-attributes
 POST /api/user/get-import-status
 [x] POST /api/user/get-internal-users
-POST /api/user/get-most-used-contacts
+[x] POST /api/user/get-most-used-contacts
 POST /api/user/import-users
 POST /api/user/remove-alias
 POST /api/user/remove-delegate-user
