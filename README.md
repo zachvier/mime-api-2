@@ -54,6 +54,55 @@ table. Enter a script name to open its detail page and run it. If no stored
 credentials are found, it prompts for session-only credentials and does not save
 them.
 
+
+```
+Credential status:
+  client_id     : found
+  client_secret : found
+  account_code  : found
+Authenticating...
+Authentication ready.
+
+Mimecast API Toolkit
+====================
+Script                         Area           Title                        Need
+----------------------------------------------------------------------------------
+get_account                    account        Account info
+get_support_info               account        Support info
+get_emergency_contact          account        Emergency contact
+get_whoami                     account        Whoami
+get_dashboard_notifications    account        Dashboard notifications      account_code
+get_rejection_logs             gateway logs   Rejection logs
+get_held_release_logs          gateway logs   Held/release logs
+get_hold_message_list          gateway logs   Held message list
+get_audit_events               gateway logs   Audit events
+get_hold_summary_list          gateway        Hold summary
+get_email_queues               gateway        Email queues
+get_gateway_details            gateway        Gateway details
+get_outbound_ip_addresses      gateway        Outbound IP addresses
+get_email_statistics           gateway        Email statistics
+get_dlp_logs                   dlp/ttp        DLP logs
+get_ttp_url_logs               dlp/ttp        TTP URL logs
+get_ttp_attachment_logs        dlp/ttp        TTP attachment logs
+get_ttp_impersonation_logs     dlp/ttp        TTP impersonation logs
+find_groups                    directory      Find groups
+get_group_members              directory      Group members
+get_internal_domains           directory      Internal domains
+get_internal_users             directory      Internal users
+get_directory_connections      directory      Directory connections
+get_user_aliases               directory      User aliases
+get_user_attributes            directory      User attributes
+find_delegate_users            directory      Delegate users
+get_most_used_contacts         directory      Most-used contacts
+get_all_managed_urls           urls/archive   Managed URLs
+get_archive_search_logs        urls/archive   Archive search logs
+get_audit_categories           urls/archive   Audit categories
+get_provisioning_packages      urls/archive   Provisioning packages
+decode_url                     decoder        Decode URL
+
+Enter a script name to view/run it, text to search, r to reset, or q to quit.
+```
+
 List scripts without authenticating:
 ```bash
 python3 mimecast_toolkit.py list
